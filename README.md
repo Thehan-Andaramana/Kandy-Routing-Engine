@@ -1,15 +1,8 @@
 # Kandy Routing Engine
 
-A routing and network-analysis engine for Kandy, Sri Lanka, written in C# (.NET 8) with no graph libraries. It answers four kinds of question on a road network of 128 locations and 215 roads:
+This is my project for Scenario 01: Intelligent Urban Routing and Network Analysis System. I built a routing engine for Kandy in C# on .NET 8, with no graph libraries, on a road network of 128 locations and 215 roads. The main trip I built it around is an emergency trip from the Clock Tower to National Hospital Kandy. The second is a commuter trip.
 
-- the best route between two places (shortest distance, fastest time, or a balance of both);
-- the best route when roads, junctions or road types must be avoided, including live incidents;
-- which places can be reached within a given number of minutes;
-- whether the network is fully connected, and which junctions and roads are critical.
-
-The main use case is an emergency trip to National Hospital Kandy; the second is a commuter trip. A benchmark times every algorithm on synthetic networks of 128 to 5,000 locations, and two Python scripts draw the charts and route maps.
-
-## Requirements covered
+## What it covers
 
 | # | Requirement | Where |
 |---|---|---|
@@ -39,11 +32,12 @@ data/        kandy_nodes.csv  kandy_edges.csv  kandy_events.csv   (generated/ is
 scripts/     plot_results.py  plot_route.py                       (matplotlib)
 tools/       recalibrate_edges.py                                 (data preparation)
 results/     benchmark.csv, charts, route maps
+.vscode/     tasks.json                                           (VS Code tasks)
 ```
 
 ## Dataset
 
-Three CSV files in `data/`:
+There are three CSV files in `data/`.
 
 | File | Rows | One row is |
 |---|---|---|
@@ -51,11 +45,15 @@ Three CSV files in `data/`:
 | `kandy_edges.csv` | 215 | a road: from, to, distance (km), base time (min), speed limit, road type (A, B, minor, bridge), one-way flag |
 | `kandy_events.csv` | 10 | an incident (roadblock, accident or traffic) on a road or junction, switched on and off from the menu |
 
-176 roads are two-way and 39 are one-way, which gives 391 directed roads. Places, road layout, one-way streets and bridges come from OpenStreetMap. Distances are estimates: the straight-line distance times a winding factor (1.7 in town, 1.25 outside). Times are the distance divided by an average speed for the road type. Both were checked against Google Maps driving directions and adjusted. Incidents are kept in their own file so the road data never changes; they are applied when the program runs.
+176 roads are two-way and 39 are one-way. That gives 391 directed roads.
+
+The places, road layout, one-way streets and bridges come from OpenStreetMap. The distances are estimates. I used the straight-line distance times a winding factor, 1.7 in town and 1.25 outside. The times are the distance divided by an average speed for the road type. I checked both against Google Maps driving directions and adjusted them.
+
+Incidents are in their own file so the road data never changes. The program applies them when it runs.
 
 ## How to run
 
-Requires the .NET 8 SDK. Python 3 with matplotlib is needed only for the charts and maps. Run every command from the project folder.
+You need the .NET 8 SDK. Python 3 with matplotlib is only for the charts and maps. Run every command from the project folder.
 
 | Task | Command |
 |---|---|
@@ -68,17 +66,33 @@ Requires the .NET 8 SDK. Python 3 with matplotlib is needed only for the charts 
 | Before / after map | `python scripts/plot_route.py results/route_normal.csv results/route_blocked.csv --network results/network_blocked.csv` |
 | Reach map | `python scripts/plot_route.py --reach results/reach_hospital_15.csv --network results/network_normal.csv` |
 
-Menu: 1 route · 2 route with restrictions · 3 compare algorithms on one trip · 4 reachable within N minutes · 5 network health · 6 incidents (switch on/off) · 7 export for the map · 8 tests · 9 benchmark.
+The menu options are 1 route, 2 route with restrictions, 3 compare algorithms on one trip, 4 reachable within N minutes, 5 network health, 6 incidents, 7 export for the map, 8 tests and 9 benchmark.
 
-Always benchmark in Release mode: a Debug build gives times that are too slow to compare, and the menu warns about it. The route-map CSVs are written by menu option 7 and are not tracked in git, except the `results/*.png` pictures.
+Run the benchmark in Release mode. A Debug build is too slow to compare. Menu option 7 writes the CSVs for the maps, and they are not tracked in git.
 
-Incidents are read from `data/kandy_events.csv` (road block, accident, traffic, with an `active` flag) and applied at run time as flags on the loaded network. The data files are never modified; switching an incident on in menu option 6 changes the next search immediately.
+### Run from VS Code
+
+Terminal > Run Task lists these tasks.
+
+| Task | What it does |
+|---|---|
+| Build | Builds the project (Ctrl+Shift+B) |
+| Run (menu) | Opens the console menu |
+| Run tests | Runs the 44 tests |
+| Benchmark (Release) | Writes `results/benchmark.csv` |
+| Generate networks | Rebuilds `data/generated/` |
+| Charts | Draws the benchmark charts |
+| Route map | Draws one route exported in menu option 7 |
+| Reach map | Draws one reach area exported in menu option 7 |
+| Before / after map | Draws two exported routes on one map |
 
 ## Results
 
-All numbers below come from the program. Tests: **44 / 44 pass**.
+All the numbers below come from the program. 44 / 44 tests pass.
 
-### Routing and incidents (Clock Tower -> National Hospital Kandy)
+### Routing and incidents
+
+The trip is Clock Tower to National Hospital Kandy.
 
 | Case | Result |
 |---|---|
@@ -89,23 +103,29 @@ All numbers below come from the program. Tests: **44 / 44 pass**.
 | Block all 7 Mahaweli bridges | a place across the river is unreachable; network reported not connected |
 | Same trip, three algorithms (test 3) | BFS has the fewest roads but never beats Dijkstra on km or minutes; both Dijkstras always return the same cost (7,296 trips checked) |
 
-Route maps: `results/route_normal.png`, `results/route_normal_vs_route_blocked.png`.
+The route maps are `results/route_normal.png` and `results/route_normal_vs_route_blocked.png`.
 
-### Reachability from National Hospital Kandy (by time)
+### Reachability
+
+This is from National Hospital Kandy, by time.
 
 | Budget (min) | 0 | 5 | 10 | 15 | 20 | 30 |
 |---|---|---|---|---|---|---|
 | Places reached (of 128) | 1 | 12 | 36 | 70 | 98 | 126 |
 
-The count never decreases as the budget grows. Map: `results/reach_hospital_15.png`.
+The count never goes down as the budget grows. The map is `results/reach_hospital_15.png`.
 
-### Connectivity and critical infrastructure
+### Connectivity and critical points
 
-The baseline network is fully connected: depth-first and breadth-first traversal both reach 128 / 128 places, forwards and backwards. Remove-and-test from the hospital finds **15 critical junctions and 16 critical roads**. The worst junction is **Nattarampota**, which cuts off 3 places, and the worst road is **road 58 (Police Hospital Kundasale - Nattarampota)**, also 3. Both sit on a dead-end spur, so closing them leaves places with only that single way in. No single bridge is critical (each river bank has another crossing), but closing all seven splits the network.
+The normal network is fully connected. DFT and BFT both reach 128 / 128 places, forwards and backwards.
 
-### Benchmark (median milliseconds for one operation, Release build)
+Remove-and-test from the hospital finds 15 critical junctions and 16 critical roads. The worst junction is Nattarampota, which cuts off 3 places. The worst road is road 58, from Police Hospital Kundasale to Nattarampota, which also cuts off 3. Both are on a dead-end spur.
 
-Synthetic connected networks with about 1.7 roads per location. Each figure is the median of 5 timed repetitions after 3 warm-up runs, on the same 50 fixed trips per size.
+No single bridge is critical because each river bank has another crossing. Closing all seven splits the network.
+
+### Benchmark
+
+I timed each operation on synthetic connected networks with about 1.7 roads per location. Each figure is the median of 5 timed repetitions after 3 warm-up runs, in milliseconds, on a Release build. Every size uses the same 50 fixed trips.
 
 | Operation | 128 | 250 | 500 | 1,000 | 2,000 | 5,000 |
 |---|---|---|---|---|---|---|
@@ -120,16 +140,11 @@ Synthetic connected networks with about 1.7 roads per location. Each figure is t
 | Matrix memory (calculated) | 0.13 MB | 0.5 MB | 2 MB | 8 MB | 32 MB | 200 MB |
 | List entries (V + E) | 566 | 1,116 | 2,286 | 4,488 | 8,900 | 22,390 |
 
-Charts: `results/bench_routing.png`, `results/bench_traversal.png`, `results/bench_critical.png`, `results/bench_memory.png`.
+The `edges` column in `benchmark.csv` counts directed roads, so a two-way street counts twice.
 
-How to read it:
+The charts are `results/bench_routing.png`, `results/bench_traversal.png`, `results/bench_critical.png` and `results/bench_memory.png`.
 
-- **Heap vs linear scan.** The two grow apart as the network grows: about 1.2x at 128 locations and about 15x at 5,000, which fits O((V + E) log V) against O(V^2 + E). The linear scan is not slower everywhere in theory (see limitations).
-- **BFS is fastest but answers a different question.** It minimises the number of roads, not km or minutes, so its route can be longer in both.
-- **Critical junctions and roads** grow roughly quadratically (O(V(V + E))), so they are only run up to 1,000 locations. Timing noise matters at the small sizes: the 250 and 500 critical-road figures are not monotonic.
-- **Reachability** depends on how many places fall inside the 15-minute area, not on the total network size, so it stays flat.
-- **A small-size timing artefact.** In the default Release configuration the 500-location row of BFS (and Reachable) is slower than the 1,000 row. Running the same benchmark with .NET's tiered JIT compilation switched off (`DOTNET_TieredCompilation=0`) removes the bump, which points to code still being optimised during the warm-up rather than to the algorithm. The charts therefore show a slightly noisy small-size region; the heap vs linear-scan gap is the same either way.
-- The `edges` column in `benchmark.csv` counts directed roads (a two-way street counts twice).
+The heap and the linear scan are close on the small network, about 1.2x apart at 128 locations. At 5,000 locations the heap is about 15x faster, which is what I expected from O((V + E) log V) against O(V^2 + E). BFS is the fastest, but it counts roads and not km or minutes, so its route can be longer. Reachability stays flat because it depends on how many places fall inside the 15 minutes and not on the size of the network. I only ran the critical junction and road checks up to 1,000 locations because they grow roughly quadratically.
 
 ## Complexity
 
@@ -153,18 +168,20 @@ V = locations, E = directed roads, d = roads leaving one location (about 3 here)
 
 ## Limitations
 
-- **Static, hand-built network.** 128 locations from OpenStreetMap places with estimated road lengths and speeds (checked against a sample in Google Maps). Real road geometry, lane counts and signals are missing, so times are approximate.
-- **Incidents are manual.** There is no live traffic feed and no time-of-day model: a traffic multiplier is a fixed number from the CSV.
-- **No turn restrictions or signal delays.** A junction costs nothing to cross.
-- **Remove-and-test does not scale.** It is quadratic, was benchmarked only up to 1,000 locations, and each check is measured from one centre (the hospital) rather than between all pairs.
-- **The dense-network claim is theoretical.** Only sparse, road-like networks were benchmarked. The expectation that the linear scan beats the heap on a dense network (E close to V^2) is derived from the complexity, not measured here.
-- **Benchmark scope.** The networks are random geometric graphs, not real cities, trips are random pairs, and the 5 repetitions are few. Differences of a few microseconds should not be read as real.
-- **Single route per query.** No alternative routes and no "nearest hospital" search.
-- **Tests build their own small cases** and a fixed set of Kandy trips; there is no property-based or large-scale fuzz testing beyond the 7,296-trip heap-vs-linear comparison.
+- The network is hand-built. Road lengths and speeds are estimates, so times are approximate.
+- Incidents are manual. There is no live traffic feed and no time of day.
+- There are no turn restrictions or signal delays.
+- Remove-and-test does not scale. I only ran it up to 1,000 locations, and only from the hospital.
+- I did not measure dense networks. That the linear scan beats the heap when E is close to V^2 comes from the complexity only.
+- The benchmark networks are random, not real cities, and 5 repetitions is few. A few microseconds of difference means nothing.
+- The 500 row for BFS and Reachable is slower than the 1,000 row. Running with `DOTNET_TieredCompilation=0` removes the bump, so I think it is the JIT and not the algorithm.
+- The 250 and 500 critical road figures are out of order. That is timing noise.
+- There is one route per query and no nearest hospital search.
+- The tests use small cases I built and a fixed set of Kandy trips.
 
-## Better algorithms that were not built
+## Better algorithms I did not build
 
-Only algorithms taught in the module are implemented. These are the upgrades a production system would consider:
+I only built algorithms taught in the module. These are the ones a real system would look at.
 
 | Option | Improvement | Trade-off |
 |---|---|---|

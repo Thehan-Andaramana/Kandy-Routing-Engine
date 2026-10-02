@@ -29,6 +29,10 @@ venv/
 Thumbs.db
 .vscode/*
 !.vscode/extensions.json
+!.vscode/tasks.json
 
 # Private notes and working docs (local only)
 private/
+
+# Submission zip
+CB015685.zip

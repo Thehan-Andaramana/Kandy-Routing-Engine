@@ -1,0 +1,94 @@
+{
+  "version": "2.0.0",
+  "options": {
+    "cwd": "${workspaceFolder}"
+  },
+  "tasks": [
+    {
+      "label": "Build",
+      "type": "shell",
+      "command": "dotnet build src/Scenario1Project",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run (menu)",
+      "type": "shell",
+      "command": "dotnet run --project src/Scenario1Project",
+      "presentation": {
+        "reveal": "always",
+        "focus": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run tests",
+      "type": "shell",
+      "command": "dotnet run --project src/Scenario1Project -- test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Benchmark (Release)",
+      "type": "shell",
+      "command": "dotnet run --project src/Scenario1Project -c Release -- bench",
+      "problemMatcher": []
+    },
+    {
+      "label": "Generate networks",
+      "type": "shell",
+      "command": "dotnet run --project src/Scenario1Project -- generate",
+      "problemMatcher": []
+    },
+    {
+      "label": "Charts",
+      "type": "shell",
+      "command": "python scripts/plot_results.py",
+      "problemMatcher": []
+    },
+    {
+      "label": "Route map",
+      "type": "shell",
+      "command": "python scripts/plot_route.py results/route_${input:label}.csv --network results/network_${input:label}.csv",
+      "problemMatcher": []
+    },
+    {
+      "label": "Reach map",
+      "type": "shell",
+      "command": "python scripts/plot_route.py --reach results/reach_${input:label}.csv --network results/network_${input:label}.csv",
+      "problemMatcher": []
+    },
+    {
+      "label": "Before / after map",
+      "type": "shell",
+      "command": "python scripts/plot_route.py results/route_${input:before}.csv results/route_${input:after}.csv --network results/network_${input:after}.csv",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "label",
+      "type": "promptString",
+      "description": "Export name from menu option 7",
+      "default": "last"
+    },
+    {
+      "id": "before",
+      "type": "promptString",
+      "description": "Export name of the first route",
+      "default": "before"
+    },
+    {
+      "id": "after",
+      "type": "promptString",
+      "description": "Export name of the second route",
+      "default": "after"
+    }
+  ]
+}
