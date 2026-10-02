@@ -1,0 +1,11 @@
+event_id,type,from,to,node,time_multiplier,active,note
+E1,roadblock,0,87,,,false,Esala Perahera - Sri Dalada Veediya closed
+E2,roadblock,,,87,,false,Perahera - junction closed (node blocked)
+E3,roadblock,39,40,,,false,Katugastota Bridge closed for maintenance
+E4,roadblock,35,36,,,false,Mahaweli flood - Getambe Bridge closed
+E5,roadblock,,,33,,false,Flooding at Peradeniya junction (node blocked)
+E6,accident,13,103,,3.0,false,Two-vehicle crash on Peradeniya Rd - one lane open
+E7,accident,16,101,,,false,Lorry overturned on Katugastota Rd - road closed
+E8,traffic,94,12,,2.0,false,Hospital approach congestion on William Gopallawa Mw
+E9,traffic,45,48,,1.8,false,Digana Rd evening peak
+E10,traffic,65,102,,2.5,false,School rush hour near Katugastota

@@ -1,0 +1,129 @@
+id,name,type,lat,lon
+0,Kandy Clock Tower,landmark,7.29315,80.63481
+1,Temple of the Tooth (Sri Dalada Maligawa),landmark,7.29360,80.64130
+2,Royal Botanic Gardens Peradeniya,landmark,7.26870,80.59600
+3,Royal Palace Park (Kandy Lake west),landmark,7.29042,80.63741
+4,Kandy Railway Station,railway,7.28980,80.63255
+5,Asgiriya Railway Station,railway,7.29784,80.63525
+6,Mahaiyawa Railway Station,railway,7.30230,80.63487
+7,Katugastota Railway Station,railway,7.33047,80.63296
+8,Peradeniya Junction Railway Station,railway,7.25730,80.59020
+9,Goods Shed Bus Stand,bus_stand,7.28947,80.63078
+10,Kandy South Bus Depot,bus_stand,7.28561,80.62508
+11,Aruppola Bus Stand,bus_stand,7.30731,80.64920
+12,National Hospital Kandy,hospital,7.28652,80.63142
+13,Asiri Hospital Kandy,hospital,7.27433,80.61147
+14,Lakeside Adventist Hospital,hospital,7.28741,80.64599
+15,Kandy Nursing Home,hospital,7.29103,80.64502
+16,Kandy Private Hospital,hospital,7.31241,80.63212
+17,Peradeniya Teaching Hospital,hospital,7.26641,80.59813
+18,Yakgahapitiya Divisional Hospital,hospital,7.29865,80.66765
+19,Police Hospital Kundasale,hospital,7.27973,80.68222
+20,Kandy Police Station,police,7.29296,80.63365
+21,Peradeniya Police Station,police,7.26764,80.60218
+22,Katugastota Police Station,police,7.33200,80.62308
+23,Menikhinna Police Station,police,7.31703,80.70220
+24,Kandy Fire Brigade,fire_station,7.28161,80.62272
+25,University of Peradeniya,school,7.25637,80.59782
+26,Trinity College,school,7.29993,80.63764
+27,Kingswood College,school,7.27766,80.61579
+28,Dharmaraja College,school,7.28934,80.65023
+29,St. Anthony's College Katugastota,school,7.32342,80.62816
+30,Vidyartha College,school,7.30628,80.63524
+31,Girls' High School Kandy,school,7.28704,80.62622
+32,Open University Polgolla,school,7.32576,80.65214
+33,Peradeniya Bridge - Peradeniya town end,bridge_end,7.26414,80.59318
+34,Peradeniya Bridge - Botanic Gardens end,bridge_end,7.26419,80.59396
+35,Getambe Bridge - Gannoruwa Rd end,bridge_end,7.27240,80.60429
+36,Getambe Bridge - Peradeniya Rd end,bridge_end,7.27190,80.60507
+37,Dodanwala-Halloluwa Bridge - Halloluwa end,bridge_end,7.28795,80.60814
+38,Dodanwala-Halloluwa Bridge - Dodanwala end,bridge_end,7.28784,80.60902
+39,Katugastota Bridge - Katugastota town end,bridge_end,7.32216,80.62511
+40,Katugastota Bridge - Kandy end,bridge_end,7.32173,80.62635
+41,Polgolla Dam Bridge - Watapuluwa end,bridge_end,7.32151,80.64467
+42,Polgolla Dam Bridge - Polgolla end,bridge_end,7.32224,80.64596
+43,Lewella Bridge - Lewella end,bridge_end,7.30084,80.65319
+44,Lewella Bridge - Sirimalwatta end,bridge_end,7.30125,80.65400
+45,Tennekumbura Bridge - Tennekumbura end,bridge_end,7.28142,80.66697
+46,Tennekumbura Bridge - Kundasale end,bridge_end,7.28146,80.66820
+47,Getambe,junction,7.26915,80.60410
+48,Tennekumbura,junction,7.28363,80.66279
+49,Ampitiya,junction,7.26787,80.66630
+50,Mahaiyawa,junction,7.30166,80.63317
+51,Asgiriya,junction,7.30043,80.62903
+52,Aruppola,junction,7.30975,80.64624
+53,Watapuluwa,junction,7.31894,80.64147
+54,Polgolla,junction,7.32795,80.64673
+55,Kundasale,junction,7.28045,80.68446
+56,Pallekele,junction,7.28053,80.69607
+57,Mulgampola,junction,7.27784,80.61798
+58,Suduhumpola,junction,7.28182,80.62413
+59,Katukele,junction,7.28661,80.62737
+60,Anniewatta,junction,7.29229,80.62417
+61,Bahirawakanda,junction,7.29535,80.62920
+62,Gohagoda,junction,7.30378,80.61265
+63,Halloluwa,junction,7.29073,80.60710
+64,Dodanwala,junction,7.28870,80.61463
+65,Mawilmada,junction,7.31812,80.62969
+66,Hantana,junction,7.26784,80.63277
+67,Dangolla,junction,7.26792,80.61291
+68,Heerassagala,junction,7.25895,80.61787
+69,Gannoruwa,junction,7.28245,80.59253
+70,Kiribathkumbura,junction,7.26773,80.57623
+71,Talwatta,junction,7.29110,80.65504
+72,Buwelikada,junction,7.29812,80.64985
+73,Sirimalwatta,junction,7.30312,80.65885
+74,Madawala,junction,7.32858,80.67351
+75,Menikhinna,junction,7.31572,80.70185
+76,Nattarampota,junction,7.28001,80.67529
+77,Talatuoya,junction,7.25151,80.69036
+78,Ranawana,junction,7.33154,80.61923
+79,Wattarantenna,junction,7.31387,80.62562
+80,Mapanawatura,junction,7.31077,80.62828
+81,Uplands,junction,7.30782,80.63980
+82,Yatihalagala,junction,7.30336,80.59277
+83,Dehideniya,junction,7.27761,80.58497
+84,Pitakanda,junction,7.28334,80.61124
+85,Uda Gunnepana,junction,7.32455,80.65828
+86,Doragamuwa Junction,junction,7.32578,80.64385
+87,Sri Dalada Veediya / E. L. Senanayake Veediya Jn,junction,7.29305,80.63718
+88,D. S. Senanayake Veediya / Siddhi Lebbe Mw Jn,junction,7.30292,80.63563
+89,Cross Street / D. S. Senanayake Veediya Jn,junction,7.29715,80.63740
+90,D. S. Senanayake Veediya / Srimath Bennet Soysa Veediya Jn,junction,7.29414,80.63827
+91,Wariyapola Sri Sumangala Mw / Thilak Ratnayake Mw Jn,junction,7.29781,80.63436
+92,Adahanamaluwa Rd / Gedige Vihara Mw Jn,junction,7.30090,80.63551
+93,Thilak Ratnayake Mw / Sri Pushpadana Mw Jn,junction,7.29385,80.63359
+94,S. W. R. D. Bandaranaike Mw / Keppetipola Rd Jn,junction,7.29168,80.63357
+95,P. B. De Silva Mw / Dharmashoka Mw Jn,junction,7.30816,80.64232
+96,Buwelikada Rd / Anagarika Dharmapala Mw Jn,junction,7.29409,80.64987
+97,Sirimavo Bandaranaike Mw / 454 Piachaud Garden Jn,junction,7.28351,80.62323
+98,Mosque Rd / Sangaraja Mw Jn,junction,7.29125,80.63742
+99,Kumara Veediya / Yatinuwara Veediya Jn,junction,7.29615,80.63576
+100,Yatinuwara Veediya / Srimath Bennet Soysa Veediya Jn,junction,7.29449,80.63589
+101,Katugastota Rd / A. C. L. Ratwatte Mw Jn,junction,7.31581,80.63053
+102,Katugastota Rd / P.B.A Weerakoon Mw Jn,junction,7.31998,80.62951
+103,Deweni Rajasinghe Mw / Sirimavo Bandaranaike Mw Jn,junction,7.27326,80.60848
+104,Dangolla Rd / Sirimavo Bandaranaike Mw Jn,junction,7.27036,80.60478
+105,Yakgahapitiya Rd / Kalapura Rd Jn,junction,7.28999,80.67303
+106,Nattarampotha Rd / Sirimalwatte - Menikhinna Rd Jn,junction,7.30143,80.66719
+107,Polgolla Dam Rd / Lewella - Polgolla Rd Jn,junction,7.32301,80.64746
+108,Madawala Rd / Station Rd Jn,junction,7.32825,80.63341
+109,Medawala Rd / Madawala Rd Jn,junction,7.32484,80.62580
+110,Kondadeniya Rd / T. B. Illangaratne Mw Jn,junction,7.32276,80.62264
+111,Gohagoda Rd Jn,junction,7.31535,80.62050
+112,Doolwala - Jayanthi Rd / Katugastota Rd Jn,junction,7.30151,80.61078
+113,Yatihalagala Rd / Katugastota Rd Jn,junction,7.28691,80.60548
+114,Gampola Rd / Penideniya Rd Jn,junction,7.26036,80.59268
+115,Gannoruwa Rd / Gannoruwa - Muruthalawa Rd Jn,junction,7.27722,80.59435
+116,Dehideniya road / Gannoruwa Rd Jn,junction,7.27228,80.59216
+117,Gannoruwa Rd Jn,junction,7.27537,80.59975
+118,Udaperadeniya Rd / Galaha Rd Jn,junction,7.26044,80.59972
+119,Meewatura Rd / Daulagala Rd Jn,junction,7.25502,80.58959
+120,Colombo-Kandy Rd / Muruthalawa Rd Jn,junction,7.26544,80.58408
+121,Pragathi Rd / Colombo Rd Jn,junction,7.26509,80.58804
+122,Dehideniya road / Muruthalawa Rd Jn,junction,7.27415,80.58346
+123,Sri Pemarathana Mw / Galagedara Rd Jn,junction,7.32372,80.60257
+124,Barigama Rd / Halloluwa Rd Jn,junction,7.31513,80.58912
+125,Ampitiya-Pichchamalwatte-Gurudeniya Rd / Haragama Rd Jn,junction,7.27124,80.68374
+126,Dambawela Rd / Ampitiya-Pichchamalwatte-Gurudeniya Rd Jn,junction,7.26649,80.67156
+127,Dambawela Rd / Haragama Rd Jn,junction,7.26848,80.69064

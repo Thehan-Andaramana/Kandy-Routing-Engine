@@ -1,0 +1,34 @@
+# Local only (not committed)
+
+# .NET / C#
+bin/
+obj/
+.vs/
+*.user
+*.suo
+TestResults/
+*.log
+
+# Generated synthetic networks (rebuild with: dotnet run --project src/Scenario1Project -- generate)
+data/generated/*
+!data/generated/.gitkeep
+
+# Generated route/network exports (benchmark.csv stays tracked)
+results/network_*.csv
+results/route_*.csv
+results/reach_*.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+# Private notes and working docs (local only)
+private/
